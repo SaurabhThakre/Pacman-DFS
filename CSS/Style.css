@@ -1,0 +1,36 @@
+div {
+	border:1px solid white;
+}
+
+.pacman {
+	width: 50px;
+	height: 50px;
+	background-image: url('../Assets/pacman.png');
+	display: inline-block;
+}
+
+.wall {
+	width: 50px;
+	height: 50px;
+	background-image: url('../Assets/wall.png');
+	display: inline-block;
+}
+
+.coin {
+	width: 50px;
+	height: 50px;
+	background-image: url('../Assets/coin.png');
+	display: inline-block;
+}
+
+.empty {
+	background-image: url('../Assets/bg.png');
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	color: white;
+}
+.linechange {
+	white-space: pre-line;
+	margin-top: -6px;
+}
