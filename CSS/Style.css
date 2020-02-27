@@ -5,6 +5,7 @@ div {
 .pacman {
 	width: 50px;
 	height: 50px;
+	/* background-color: orange; */
 	background-image: url('../Assets/pacman.png');
 	display: inline-block;
 }
@@ -12,7 +13,8 @@ div {
 .wall {
 	width: 50px;
 	height: 50px;
-	background-image: url('../Assets/wall.png');
+	background-color: darkblue;
+	/* background-image: url('../Assets/wall.png'); */
 	display: inline-block;
 }
 
@@ -24,12 +26,13 @@ div {
 }
 
 .empty {
-	background-image: url('../Assets/bg.png');
 	width: 50px;
 	height: 50px;
+	background-color: black;
+	/* background-image: url('../Assets/bg.png'); */
 	display: inline-block;
-	color: white;
 }
+
 .linechange {
 	white-space: pre-line;
 	margin-top: -6px;
