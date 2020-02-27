@@ -170,8 +170,10 @@ $(document).ready(function () {
                     var myId = "#id" + i + "id" + j;
                         if($(myId).hasClass("pacman") == true){
                             // alert("Have Pacman");
-                            $(myId).toggleClass("pacman");
-                            var myId1 = "#id" + i + "id" + (j - 1);
+                            if(arr[i][j-1] == 0){
+                                $(myId).toggleClass("pacman");
+                                var myId1 = "#id" + i + "id" + (j - 1);
+                            }
                         }
                 }
             }
@@ -183,8 +185,10 @@ $(document).ready(function () {
                     var myId = "#id" + i + "id" + j;
                         if($(myId).hasClass("pacman") == true){
                             // alert("Have Pacman");
-                            $(myId).toggleClass("pacman");
-                            var myId1 = "#id" + (i - 1) + "id" + j;
+                            if(arr[i-1][j] == 0){
+                                $(myId).toggleClass("pacman");
+                                var myId1 = "#id" + (i - 1) + "id" + j;
+                            }
                         }
                 }
             }
@@ -196,8 +200,10 @@ $(document).ready(function () {
                     var myId = "#id" + i + "id" + j;
                         if($(myId).hasClass("pacman") == true){
                             // alert("Have Pacman");
-                            $(myId).toggleClass("pacman");
-                            var myId1 = "#id" + i + "id" + (j + 1);
+                            if(arr[i][j+1] == 0){
+                                $(myId).toggleClass("pacman");
+                                var myId1 = "#id" + i + "id" + (j + 1);
+                            }
                         }
                 }
             }
@@ -209,8 +215,10 @@ $(document).ready(function () {
                     var myId = "#id" + i + "id" + j;
                         if($(myId).hasClass("pacman") == true){
                             // alert("Have Pacman");
-                            $(myId).toggleClass("pacman");
-                            var myId1 = "#id" + (i + 1) + "id" + j;
+                            if(arr[i+1][j] == 0){
+                                $(myId).toggleClass("pacman");
+                                var myId1 = "#id" + (i + 1) + "id" + j;
+                            }
                         }
                 }
             }
