@@ -63,3 +63,24 @@
     }
     
     
+    let ival = 2;
+    let jval = 2;
+
+    // $("input").change(function(){
+    //     ival = $('#ival').val();
+    //     jval = $('#jval').val();
+    //     console.log(ival);
+    //     console.log(jval);
+    //     if(arr[ival][jval] == 0){
+    //         var myId = "#id" + ival + "id" + jval;
+    //         $(myId).addClass("goalcolor");
+    //     }
+    //     else{
+    //         alert("There is Wall! Select another position.");
+    //     }
+        
+    // });
+
+    $('button').click(function(){
+        
+    });
