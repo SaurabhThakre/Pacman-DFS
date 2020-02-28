@@ -28,7 +28,7 @@ div {
 .empty {
 	width: 50px;
 	height: 50px;
-	background-color: black;
+	background-color: #121212;
 	/* background-image: url('../Assets/bg.png'); */
 	display: inline-block;
 }
@@ -36,4 +36,11 @@ div {
 .linechange {
 	white-space: pre-line;
 	margin-top: -6px;
+}
+
+.color {
+	width: 50px;
+	height: 50px;
+	background-color: orange;
+	display: inline-block;
 }
