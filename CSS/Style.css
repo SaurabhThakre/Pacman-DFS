@@ -41,6 +41,27 @@ div {
 .color {
 	width: 50px;
 	height: 50px;
-	background-color: orange;
+	background-color: limegreen;
 	display: inline-block;
+}
+
+.goalcolor {
+	width: 50px;
+	height: 50px;
+	background-color: red;
+	display: inline-block;
+}
+
+.inputbox {
+	color: white;
+	font-size: larger;
+	background-color: #333;
+	width: fit-content;
+	padding: 5px;
+}
+
+button {
+	font-size: large;
+	border: 2px solid #121212;
+	background-color: #bb86fc;
 }
