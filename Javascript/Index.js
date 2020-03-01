@@ -217,12 +217,35 @@ $(document).ready(function () {
     var flagp = 0;
     var flagt = 0;
 
+    var move = [];
+    var jump = [];
+    var morv = [];
+    var stackseq = [];
+    var stackval = [];
+    var visited = [];
+    
     var gl = "id4id5";
 
     let flagreload = 0;
 
     $(".empty").click(function () {
         var myIde = $(this).attr("id");
+
+        $( "div" ).remove( ".explored" );
+        $( "div" ).remove( ".stack" );
+        $( "br" ).remove();
+
+        // set goal to mouse clicked box
+        var goalId = "#" + myIde;
+        for (var i = 1; i <= 13; i++) {
+            for (var j = 1; j <= 14; j++) {
+                var myId = "#id" + i + "id" + j;
+                if ($(myId).hasClass("goalcolor") == true) {
+                    $(myId).toggleClass("goalcolor");
+                }
+            }
+        }
+        $(goalId).addClass("goalcolor");
 
         console.log("~~~myIde~~~~~", myIde);
 
@@ -231,11 +254,12 @@ $(document).ready(function () {
             flagp = 0;
             flagt = 0;
             flag = 0;
-
+            
+            // reset pacman to root position on another mouse click
             var myIds = "#id" + 2 + "id" + 2;
             $(myIds).addClass("pacman");
             var myIds1 = "#" + gl;
-            console.log("###########" + myIds1);
+
             $(myIds1).toggleClass("pacman");
             for (var i = 1; i <= 13; i++) {
                 for (var j = 1; j <= 14; j++) {
@@ -251,7 +275,6 @@ $(document).ready(function () {
         }
 
 
-        $(myIde).addClass("goalcolor");
         gl = myIde;
 
         var rt = "id2id2";
@@ -442,6 +465,8 @@ $(document).ready(function () {
 
         console.log("***********", gl);
 
+        $("#Goal").append(`<div class="goal">${gl}</div>`);
+
         DFS(rt, gl);
 
 
@@ -455,12 +480,17 @@ $(document).ready(function () {
             let str2y = "";
 
             s.push(root);
+            stackseq.push(0);       // for display at right side on screen
+            stackval.push(root);    // for display at right side on screen
 
             explored.add(root);
+            visited.push(root);     // for display at right side on screen
 
             // We'll continue till our Stack gets empty
-            while (!s.isEmpty()) {
+            while (!s.isEmpty()) {                
+
                 let t = s.pop();
+                stackseq.push(1); // for display at right side on screen
 
                 if (flag != 0) {
                     for (let i = 2; i < previous.length - 2; i++) {
@@ -481,59 +511,81 @@ $(document).ready(function () {
                             str2y = str2y + t.charAt(i + 2);
                         }
                     }
-
-                    // console.log(str1x);
-                    // console.log(str1y);
-                    // console.log(str2x);
-                    // console.log(str2y);
-
-
-                    // setTimeout(function(){  }, 3000);
-
+                    
+                    
                     if (str2x > str1x) {
                         if (str2x - str1x == 1) {
-                            myFunction(40);
+                            // move down
+                            move.push(40);
+                            morv.push(0);
                         }
                         else {
-                            pacmanJump(str1x, str1y, str2x, str2y);
+                            // pacmanJump
+                            jump.push(str1x);
+                            jump.push(str1y);
+                            jump.push(str2x);
+                            jump.push(str2y);
+                            morv.push(1);
                         }
                     }
                     else if (str2x < str1x) {
                         if (str1x - str2x == 1) {
-                            myFunction(38);
+                            // move up
+                            move.push(38);
+                            morv.push(0);
                         }
                         else {
-                            pacmanJump(str1x, str1y, str2x, str2y);
+                            // pacmanJump
+                            jump.push(str1x);
+                            jump.push(str1y);
+                            jump.push(str2x);
+                            jump.push(str2y);
+                            morv.push(1);
                         }
                     }
                     else if (str2y > str1y) {
                         if (str2y - str1y == 1) {
-                            myFunction(39);
+                            // move right
+                            move.push(39);
+                            morv.push(0);
                         }
                         else {
-                            pacmanJump(str1x, str1y, str2x, str2y);
+                            // pacmanJump
+                            jump.push(str1x);
+                            jump.push(str1y);
+                            jump.push(str2x);
+                            jump.push(str2y);
+                            morv.push(1);
                         }
                     }
                     else {
                         if (str1y - str2y == 1) {
-                            myFunction(37);
+                            // move left
+                            move.push(37);
+                            morv.push(0);
                         }
                         else {
-                            pacmanJump(str1x, str1y, str2x, str2y);
+                            // pacmanJump
+                            jump.push(str1x);
+                            jump.push(str1y);
+                            jump.push(str2x);
+                            jump.push(str2y);
+                            morv.push(1);
                         }
                     }
 
                 }
 
 
-                // console.log(t);
-
                 g.edges[t]
                     .filter(n => !explored.has(n))
                     .forEach(n => {
-                        
+
                         explored.add(n);
+                        visited.push(n); // for display at right side on screen
                         s.push(n);
+                        stackseq.push(0); // for display at right side on screen
+                        stackval.push(n); // for display at right side on screen
                     });
 
                 if (t == goal) {
@@ -549,13 +601,63 @@ $(document).ready(function () {
                 flagt = 0;
                 previous = t;
                 flag = 1;
-            }
 
+                console.log(stackseq);
+                console.log(stackval);
+                
+            }
+        
 
         }
 
     });
 
+    // Animate with time delay
+
+    // Animate Packman Movement
+    setInterval(() => {
+        if(morv.length != 0){
+            if(morv.shift() == 0){
+                myFunction(move.shift());
+            }
+            else{
+                pacmanJump(jump.shift(),jump.shift(),jump.shift(),jump.shift());
+            }
+        }
+        else{
+            clearInterval();
+        }
+    }, 600);
+
+    // Animate Stack
+    setInterval(() => {
+        if(stackseq.length != 0){
+            if(stackseq.shift() == 0){
+                $("#Stack").prepend(`<div class="stack" >${stackval.shift()}</div><br />`);
+            }
+            else{
+                $("#Stack").find('div:first').remove();
+                $("#Stack").find('br:first').remove();
+            }
+        }
+        else{
+            clearInterval();
+        }
+    }, 200);
+
+    // Animate Explored Nodes
+    setInterval(() => {
+        if(visited.length != 0){
+            $("#Explored").append(`<div class="explored">${visited.shift()}</div>`);
+        }
+        else{
+            clearInterval();
+        }
+    }, 400);
+
+    $("#Explored").append(`<div>Explored Node:</div><br />`);
+    $("#Stack").prepend(`<div>Stack Operations:</div><br />`);
+    $("#Goal").append(`<div>Goal Node:</div><br />`);
 
 });
 

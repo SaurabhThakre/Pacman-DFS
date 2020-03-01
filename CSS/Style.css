@@ -51,3 +51,67 @@ div {
 	background-color: red;
 	display: inline-block;
 }
+
+.stack {
+	width: 50px;
+	height: 25px;
+	color: white;
+	font-size: large;
+	font-weight: bold;
+	background-color: tomato;
+	border: 2px solid black;
+	display: inline-block;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+
+.explored {
+	width: 50px;
+	height: 25px;
+	color: white;
+	font-size: large;
+	font-weight: bold;
+	background-color: dodgerblue;
+	border: 2px solid black;
+	display: inline-block;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+
+.goal {
+	width: 50px;
+	height: 25px;
+	color: white;
+	font-size: large;
+	font-weight: bold;
+	background-color: green;
+	border: 2px solid black;
+	display: inline-block;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	position: absolute;
+}
+
+#Stack {
+	position: absolute;
+	top: 100px;
+	left: 800px;
+}
+
+#Explored {
+	position: absolute;
+	top: 10px;
+	left: 900px;
+}
+
+#Goal {
+	position: absolute;
+	top: 10px;
+	left: 800px;
+}
