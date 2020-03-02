@@ -280,101 +280,21 @@ $(document).ready(function () {
         var rt = "id2id2";
 
         let g = new Graph();
-        g.addNode(rt);
-        g.addNode("id2id3");
-        g.addNode("id2id4");
-        g.addNode("id2id5");
-        g.addNode("id2id6");
-        g.addNode("id2id7");
-        g.addNode("id2id9");
-        g.addNode("id2id11");
-        g.addNode("id2id13");
 
-        g.addNode("id3id2");
-        g.addNode("id3id9");
-        g.addNode("id3id11");
-        g.addNode("id3id13");
+        for (var i = 1; i <= 13; i++) {
+            for (var j = 1; j <= 14; j++) {
+                var myId = "id" + i + "id" + j;
+                g.addNode(myId);
+            }
+        }
 
-        g.addNode("id4id2");
-        g.addNode("id4id3");
-        g.addNode("id4id4");
-        g.addNode("id4id5");
-        g.addNode("id4id6");
-        g.addNode("id4id7");
-        g.addNode("id4id9");
-        g.addNode("id4id10");
-        g.addNode("id4id11");
-        g.addNode("id4id12");
-        g.addNode("id4id13");
-
-        g.addNode("id5id5");
-        g.addNode("id5id11");
-
-        g.addNode("id6id2");
-        g.addNode("id6id3");
-        g.addNode("id6id5");
-        g.addNode("id6id7");
-        g.addNode("id6id9");
-        g.addNode("id6id11");
-        g.addNode("id6id12");
-        g.addNode("id6id13");
-
-        g.addNode("id7id2");
-        g.addNode("id7id5");
-        g.addNode("id7id7");
-        g.addNode("id7id9");
-        g.addNode("id7id11");
-
-        g.addNode("id8id2");
-        g.addNode("id8id3");
-        g.addNode("id8id4");
-        g.addNode("id8id5");
-        g.addNode("id8id6");
-        g.addNode("id8id7");
-        g.addNode("id8id9");
-        g.addNode("id8id10");
-        g.addNode("id8id11");
-        g.addNode("id8id12");
-        g.addNode("id8id13");
-
-        g.addNode("id9id3");
-        g.addNode("id9id13");
-
-        g.addNode("id10id2");
-        g.addNode("id10id3");
-        g.addNode("id10id4");
-        g.addNode("id10id5");
-        g.addNode("id10id6");
-        g.addNode("id10id7");
-        g.addNode("id10id8");
-        g.addNode("id10id9");
-        g.addNode("id10id10");
-        g.addNode("id10id11");
-        g.addNode("id10id12");
-        g.addNode("id10id13");
-
-        g.addNode("id11id2");
-        g.addNode("id11id4");
-        g.addNode("id11id9");
-        g.addNode("id11id11");
-        g.addNode("id11id13");
-
-        g.addNode("id12id2");
-        g.addNode("id12id4");
-        g.addNode("id12id6");
-        g.addNode("id12id7");
-        g.addNode("id12id8");
-        g.addNode("id12id9");
-        g.addNode("id12id11");
-        g.addNode("id12id13");
-
-        g.addEdge(rt, "id2id3");
+        g.addEdge("id2id2", "id2id3");
         g.addEdge("id2id3", "id2id4");
         g.addEdge("id2id4", "id2id5");
         g.addEdge("id2id5", "id2id6");
         g.addEdge("id2id6", "id2id7");
 
-        g.addEdge(rt, "id3id2");
+        g.addEdge("id2id2", "id3id2");
         g.addEdge("id3id2", "id4id2");
 
         g.addEdge("id4id2", "id4id3");
@@ -632,6 +552,7 @@ $(document).ready(function () {
     // Animate Stack
     setInterval(() => {
         if(stackseq.length != 0){
+            // $('div').off('click');
             if(stackseq.shift() == 0){
                 $("#Stack").prepend(`<div class="stack" >${stackval.shift()}</div><br />`);
             }
