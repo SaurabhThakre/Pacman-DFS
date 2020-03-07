@@ -99,9 +99,25 @@ div {
 	position: absolute;
 }
 
+.root {
+	width: 50px;
+	height: 25px;
+	color: rgb(245, 245, 245);
+	font-size: large;
+	font-weight: bold;
+	background-color: rgb(128, 0, 122);
+	border: 2px solid black;
+	display: inline-block;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	position: absolute;
+}
+
 #Stack {
 	position: absolute;
-	top: 100px;
+	top: 200px;
 	left: 800px;
 }
 
@@ -111,8 +127,14 @@ div {
 	left: 950px;
 }
 
-#Goal {
+#Root {
 	position: absolute;
 	top: 10px;
+	left: 800px;
+}
+
+#Goal {
+	position: absolute;
+	top: 100px;
 	left: 800px;
 }

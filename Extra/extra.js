@@ -549,3 +549,19 @@
 
 
     // });
+
+    for (var i = 1; i <= 13; i++) {
+        for (var j = 1; j <= 14; j++) {
+            var myId = "id" + i + "id" + j;
+            var myIdr = "id" + i + "id" + (j + 1);
+            var myIdd = "id" + (i + 1) + "id" + j;
+            if(arr[i][j] == 0){
+                if(arr[i][j + 1] == 0){
+                    g.addEdge(myId, myIdr);
+                }
+                if(arr[i + 1][j] == 0){
+                    g.addEdge(myId, myIdd);
+                }
+            }
+        }
+    }
