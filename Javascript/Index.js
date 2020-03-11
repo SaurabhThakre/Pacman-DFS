@@ -226,6 +226,8 @@ $(document).ready(function () {
 
     let flagreload = 0;
 
+    var pathCost = 1;
+
 
     $(".empty").click(function () {
         var myIde = $(this).attr("id");
@@ -287,6 +289,7 @@ $(document).ready(function () {
                 flagp = 0;
                 flagt = 0;
                 flag = 0;
+                pathCost = 1;
 
 
                 for (var i = 1; i <= 13; i++) {
@@ -336,6 +339,7 @@ $(document).ready(function () {
             DFS(rt, gl);
 
 
+            // Depth first search (DFS)
             function DFS(root, goal) {
                 let s = new Stack(200);
                 let explored = new Set();
@@ -497,9 +501,13 @@ $(document).ready(function () {
         if (morv.length != 0) {
             if (morv.shift() == 0) {
                 myFunction(move.shift());
+                pathCost++;
+                $("#Path").append(`<div class="path">${pathCost}</div>`);
             }
             else {
                 pacmanJump(jump.shift(), jump.shift(), jump.shift(), jump.shift());
+                pathCost++;
+                $("#Path").append(`<div class="path">${pathCost}</div>`);
             }
         }
         else {
@@ -538,6 +546,7 @@ $(document).ready(function () {
     $("#Stack").prepend(`<div>Stack Operations:</div><br />`);
     $("#Goal").append(`<div>Goal Node:</div><br />`);
     $("#Root").append(`<div>Root Node:</div><br />`);
+    $("#Path").append(`<div>Path Cost:</div><br />`);
 
 });
 

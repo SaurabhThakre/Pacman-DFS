@@ -66,6 +66,7 @@ div {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
+	text-align: center;
 }
 
 .explored {
@@ -80,6 +81,7 @@ div {
 	padding-right: 15px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	text-align: center;
 	padding-left: 5px;
 }
 
@@ -96,6 +98,7 @@ div {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
+	text-align: center;
 	position: absolute;
 }
 
@@ -112,12 +115,30 @@ div {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
+	text-align: center;
+	position: absolute;
+}
+
+.path {
+	width: 50px;
+	height: 25px;
+	color: black;
+	font-size: large;
+	font-weight: bold;
+	background-color: rgb(229, 255, 0);
+	border: 2px solid black;
+	display: inline-block;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	text-align: center;
 	position: absolute;
 }
 
 #Stack {
 	position: absolute;
-	top: 200px;
+	top: 300px;
 	left: 800px;
 }
 
@@ -136,5 +157,11 @@ div {
 #Goal {
 	position: absolute;
 	top: 100px;
+	left: 800px;
+}
+
+#Path {
+	position: absolute;
+	top: 200px;
 	left: 800px;
 }
