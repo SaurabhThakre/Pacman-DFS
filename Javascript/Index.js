@@ -227,6 +227,7 @@ $(document).ready(function () {
     let flagreload = 0;
 
     var pathCost = 1;
+    var speed = 600;
 
 
     $(".empty").click(function () {
@@ -494,6 +495,8 @@ $(document).ready(function () {
 
     });
 
+    
+
     // Animate with time delay
 
     // Animate Packman Movement
@@ -513,7 +516,7 @@ $(document).ready(function () {
         else {
             clearInterval();
         }
-    }, 600); //600
+    }, speed); //600
 
     // Animate Stack
     setInterval(() => {
@@ -530,7 +533,7 @@ $(document).ready(function () {
         else {
             clearInterval();
         }
-    }, 275); //250
+    }, speed*1/3); //250
 
     // Animate Explored Nodes
     setInterval(() => {
@@ -540,13 +543,15 @@ $(document).ready(function () {
         else {
             clearInterval();
         }
-    }, 475); //450
+    }, speed*2/3); //450
 
     $("#Explored").append(`<div>Explored Node:</div><br />`);
     $("#Stack").prepend(`<div>Stack Operations:</div><br />`);
     $("#Goal").append(`<div>Goal Node:</div><br />`);
     $("#Root").append(`<div>Root Node:</div><br />`);
     $("#Path").append(`<div>Path Cost:</div><br />`);
+
+
 
 });
 
