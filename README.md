@@ -1,5 +1,5 @@
 # Pacman-DFS
-AI Assignment - Move Pacman using Depth First Search (DFS) Algorithm.
+Simulation of Pacman finding path using Depth First Search (DFS) Algorithm.
 
 <img src="./Assets/preview.gif" alt="animated" />
 
